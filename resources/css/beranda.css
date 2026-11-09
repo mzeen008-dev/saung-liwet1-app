@@ -1,0 +1,17 @@
+.hero { text-align:center; background:linear-gradient(135deg,#e8eefc,#eaf8ec); }
+.hero .logo-besar { width:64px; height:64px; margin:0 auto 8px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; font-size:34px; }
+.hero h2 { margin:0; color:var(--hijau); }
+.hero small { color:var(--oranye); font-weight:700; letter-spacing:.5px; }
+.tagline { color:var(--coklat); font-weight:600; margin:12px 0 8px; }
+.jam { display:inline-block; background:#eef2ff; padding:6px 14px; border-radius:20px; font-size:14px; font-weight:600; }
+.sesi { display:flex; align-items:center; gap:12px; }
+.sesi .ikon { width:48px; height:48px; border-radius:12px; background:var(--hijau-muda); display:flex; align-items:center; justify-content:center; font-size:24px; }
+.sesi .aktif { color:var(--hijau); font-weight:700; font-size:13px; }
+.sesi .vip { margin-left:auto; background:#e0e7ff; color:#3730a3; font-weight:600; padding:8px 14px; border-radius:20px; font-size:13px; }
+.banner { border-radius:16px; padding:90px 16px 16px; margin-bottom:14px; color:#fff; background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.65)),linear-gradient(135deg,#2f7d3c,#8a5a2b); }
+.banner .tag { background:var(--oranye); padding:4px 12px; border-radius:16px; font-weight:700; font-size:13px; }
+.banner b { display:block; margin-top:8px; }
+.dua { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:14px 0; }
+.fas { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:10px; }
+.fas div { background:#fff; border-radius:12px; padding:12px 6px; text-align:center; font-size:13px; font-weight:600; box-shadow:0 1px 4px rgba(0,0,0,.06); }
+.fas small { display:block; color:var(--abu); font-weight:400; font-size:10px; margin-top:2px; }

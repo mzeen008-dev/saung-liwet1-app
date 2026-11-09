@@ -1,0 +1,11 @@
+* { box-sizing: border-box; }
+body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px; font-family:'Plus Jakarta Sans',Arial,sans-serif; background:#eef1f8; color:#1b1f23; }
+.kotak { background:#fff; border-radius:20px; padding:36px 32px; max-width:440px; width:100%; text-align:center; box-shadow:0 10px 40px rgba(0,0,0,.1); }
+.logo { width:54px; height:54px; margin:0 auto 12px; border-radius:50%; background:#dff5e3; display:flex; align-items:center; justify-content:center; font-size:28px; }
+.kode { font-size:64px; font-weight:800; color:#14522a; line-height:1; }
+h1 { font-size:20px; margin:10px 0 8px; }
+p { color:#6b7280; font-size:14px; line-height:1.6; margin:0 0 22px; }
+.aksi { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+.aksi a { text-decoration:none; font-weight:700; font-size:14px; padding:11px 18px; border-radius:12px; }
+.utama { background:#14522a; color:#fff; }
+.kedua { background:#fff; color:#14522a; border:2px solid #14522a; }

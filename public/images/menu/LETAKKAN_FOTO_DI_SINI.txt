@@ -1,0 +1,5 @@
+Foto menu disimpan di folder ini.
+
+Cara 1 (disarankan): unggah lewat halaman admin  ->  Admin & Stok  ->  Ubah  ->  Foto Menu.
+Cara 2 (banyak sekaligus): simpan file di sini dengan nama sesuai menu, huruf kecil dan tanda strip,
+contoh  nasi-liwet-ayam.jpg , lalu jalankan:   php artisan menu:pasang-foto

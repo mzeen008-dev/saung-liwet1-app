@@ -1,0 +1,28 @@
+.bar-judul { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:14px; }
+.bar-judul h2 { margin:0; border:0; padding:0; }
+.bar-judul small { color:var(--abu); }
+.btn-isi { background:var(--hijau); color:#fff; border-radius:12px; padding:11px 16px; font-weight:700; font-size:14px; text-decoration:none; }
+.peran, .status-meja { display:inline-block; font-size:11px; font-weight:800; padding:3px 10px; border-radius:10px; text-transform:uppercase; }
+.peran.admin { background:#ede9fe; color:#5b21b6; }
+.peran.kasir { background:#dbeafe; color:#1e40af; }
+.peran.koki { background:#ffedd5; color:#9a3412; }
+.status-meja.kosong { background:var(--hijau-muda); color:var(--hijau); }
+.status-meja.terisi { background:#fef3c7; color:#92400e; }
+.penanda { background:#e0e7ff; color:#3730a3; font-size:10px; font-weight:800; padding:2px 8px; border-radius:8px; margin-left:6px; }
+.aksi { white-space:nowrap; }
+.aksi a { color:var(--hijau); font-weight:700; text-decoration:none; margin-right:10px; }
+.aksi form { display:inline; margin:0; }
+.aksi .hapus { background:none; border:0; color:#c0392b; font-weight:700; cursor:pointer; font-family:inherit; font-size:inherit; padding:0; }
+.catatan-kecil { color:var(--abu); margin-left:8px; font-size:11px; }
+.catatan-bawah { color:var(--abu); font-size:12px; }
+.kotak-link { display:flex; gap:6px; align-items:center; }
+.kotak-link input { width:210px; padding:6px 8px; border:1px solid #d1d5db; border-radius:8px; font-size:12px; font-family:inherit; background:#f9fafb; }
+.kotak-link button { border:0; background:#e0e7ff; color:#3730a3; border-radius:8px; padding:6px 10px; font-weight:700; font-size:12px; cursor:pointer; font-family:inherit; }
+.kotak-link a { color:var(--hijau); font-weight:700; font-size:12px; text-decoration:none; }
+.form select { width:100%; padding:10px; border:1px solid #ccc; border-radius:8px; font-family:inherit; background:#fff; }
+.petunjuk { font-size:12px; color:var(--abu); margin-top:4px; }
+.kisi-menu { display:grid; grid-template-columns:repeat(auto-fill, minmax(180px, 1fr)); gap:12px; margin-bottom:16px; }
+.kisi-menu a { background:#fff; border-radius:14px; padding:16px; box-shadow:0 1px 6px rgba(0,0,0,.08); text-decoration:none; color:#1b1f23; font-weight:700; display:flex; align-items:center; gap:10px; }
+.kisi-menu a:hover { box-shadow:0 2px 10px rgba(0,0,0,.14); }
+.kisi-menu span { font-size:24px; }
+.kisi-menu small { display:block; color:var(--abu); font-weight:500; font-size:12px; }

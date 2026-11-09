@@ -1,0 +1,15 @@
+/* Banner Beranda dengan foto menu */
+.banner.banner-foto { display:block; text-decoration:none; color:#fff; background-size:cover; background-position:center; min-height:170px; padding-top:100px; }
+.banner.banner-foto small { display:block; margin-top:2px; opacity:.9; font-weight:600; }
+
+/* Miniatur foto di tabel Admin & Stok */
+.foto-kecil { width:40px; height:40px; object-fit:cover; border-radius:10px; flex-shrink:0; background:#f1efe9; }
+
+/* Form unggah foto menu */
+.foto-sekarang { display:flex; align-items:center; gap:12px; margin-bottom:8px; }
+.foto-sekarang img { width:96px; height:96px; object-fit:cover; border-radius:12px; border:1px solid #e5e7eb; }
+.cek-hapus { display:flex !important; align-items:center; gap:6px; font-size:13px !important; margin:0 !important; color:#b91c1c; }
+.cek-hapus input { width:auto !important; }
+.petunjuk-foto { font-size:12px; color:#6b7280; margin-top:6px; }
+.pratinjau { display:block; margin-top:10px; width:160px; height:160px; object-fit:cover; border-radius:12px; border:1px solid #e5e7eb; }
+.pratinjau[hidden] { display:none; }

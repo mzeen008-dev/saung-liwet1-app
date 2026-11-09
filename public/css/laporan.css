@@ -1,0 +1,31 @@
+.filter { display:flex; flex-wrap:wrap; gap:12px; align-items:flex-end; }
+.filter label { display:block; font-size:12px; font-weight:700; color:var(--abu); margin-bottom:4px; }
+.filter input[type=date] { padding:9px 10px; border:1px solid #d1d5db; border-radius:10px; font-family:inherit; }
+.cepat { display:flex; gap:6px; flex-wrap:wrap; }
+.cepat a { background:#eef2ff; color:#3730a3; text-decoration:none; font-size:12px; font-weight:700; padding:8px 12px; border-radius:16px; }
+.aksi-laporan { margin-left:auto; display:flex; gap:8px; }
+.btn-garis { background:#fff; color:var(--hijau); border:2px solid var(--hijau); border-radius:10px; padding:8px 14px; font-weight:700; font-family:inherit; font-size:13px; text-decoration:none; cursor:pointer; }
+
+.kartu-stat { display:grid; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)); gap:12px; margin-bottom:8px; }
+.stat-box { background:#fff; border-radius:14px; padding:14px 16px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+.stat-box small { display:block; font-size:10px; font-weight:700; letter-spacing:.5px; color:var(--abu); }
+.stat-box b { display:block; font-size:22px; margin:4px 0; }
+.stat-box span { font-size:12px; color:var(--abu); }
+.stat-box.utama { background:var(--hijau); color:#fff; grid-column:span 2; }
+.stat-box.utama small, .stat-box.utama span { color:rgba(255,255,255,.75); }
+.stat-box.utama b { font-size:28px; }
+
+.batang { background:#e5e7eb; border-radius:6px; height:10px; overflow:hidden; }
+.batang div { background:var(--hijau); height:100%; border-radius:6px; }
+.tanpa-bukti { color:#b45309; font-size:12px; font-weight:600; }
+.halaman { display:flex; gap:16px; justify-content:center; align-items:center; margin-top:12px; font-size:13px; }
+.halaman a { color:var(--hijau); font-weight:700; text-decoration:none; }
+.catatan-laporan { color:var(--abu); font-size:12px; }
+
+@media (max-width: 700px) { .stat-box.utama { grid-column:span 1; } .aksi-laporan { margin-left:0; } }
+@media print {
+    .side, .topbar, .filter { display:none !important; }
+    .shell { display:block; }
+    main { padding:0; }
+    .card, .stat-box { box-shadow:none; border:1px solid #ddd; }
+}

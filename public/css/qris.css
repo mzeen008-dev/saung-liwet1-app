@@ -1,0 +1,6 @@
+.qris-box { text-align:center; background:#fff; border-radius:12px; padding:12px; margin:8px 0 10px; }
+.qris-box img { width:100%; max-width:260px; border-radius:8px; border:1px solid #e5e7eb; }
+.qris-box small { display:block; margin-top:8px; color:#555; font-size:12px; }
+.qris-box .nominal { font-size:20px; font-weight:800; color:var(--hijau); margin-top:10px; }
+.qris-unduh { display:inline-block; margin-top:10px; color:var(--hijau); font-weight:700; font-size:13px; text-decoration:none; }
+.qris-kosong { background:#fff3cd; color:#856404; padding:10px; border-radius:8px; font-size:13px; font-weight:600; }

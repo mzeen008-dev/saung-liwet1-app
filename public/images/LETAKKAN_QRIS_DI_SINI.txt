@@ -1,0 +1,3 @@
+Simpan gambar QRIS merchant saung dengan nama persis:  qris.png
+di folder ini (public/images/qris.png).
+Setelah itu QRIS otomatis tampil di halaman checkout dan status pelanggan.

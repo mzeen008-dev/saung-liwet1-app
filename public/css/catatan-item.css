@@ -1,0 +1,5 @@
+.item-checkout { padding:12px; }
+.catatan-item { margin-top:10px; }
+.catatan-item input { width:100%; padding:9px 12px; border:1px solid #e5e7eb; border-radius:10px; font-family:inherit; font-size:13px; }
+.chips-item { display:flex; gap:6px; flex-wrap:wrap; margin-top:6px; }
+.chips-item button { border:0; background:#e0e7ff; color:#3730a3; padding:5px 10px; border-radius:14px; font-size:11px; font-weight:600; cursor:pointer; font-family:inherit; }

@@ -1,0 +1,31 @@
+h4 { margin:18px 0 8px; font-size:16px; }
+.lokasi { background:#eef2ff; display:flex; align-items:center; gap:12px; }
+.lokasi .ikon { width:44px; height:44px; border-radius:12px; background:var(--hijau-muda); display:flex; align-items:center; justify-content:center; font-size:22px; }
+.lokasi small { color:var(--abu); font-weight:600; font-size:11px; }
+.lokasi .ok { margin-left:auto; background:var(--hijau-muda); color:var(--hijau); font-size:11px; font-weight:700; padding:4px 10px; border-radius:12px; }
+.isian { width:100%; padding:14px; border:1px solid #e5e7eb; border-radius:12px; font-family:inherit; font-size:15px; }
+.petunjuk { font-size:12px; color:var(--abu); margin-top:6px; }
+.judul-baris { display:flex; justify-content:space-between; align-items:center; }
+.judul-baris a { color:var(--hijau); font-weight:700; font-size:13px; text-decoration:none; }
+.rincian-baris { display:flex; align-items:center; gap:12px; }
+.rincian-baris .foto { width:62px; height:62px; border-radius:10px; font-size:26px; }
+.rincian-baris .nama { flex:1; font-weight:700; }
+.rincian-baris .harga { color:var(--hijau); font-weight:800; font-size:inherit; }
+.qtybox { display:flex; align-items:center; gap:12px; background:#eef2ff; border-radius:24px; padding:4px; }
+.qtybox button { width:30px; height:30px; border-radius:50%; border:0; cursor:pointer; background:#fff; }
+.qtybox button.plus { background:var(--hijau); color:#fff; }
+.chips { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+.chips button { border:0; background:#e0e7ff; color:#3730a3; padding:8px 12px; border-radius:16px; font-size:12px; font-weight:600; cursor:pointer; font-family:inherit; }
+.bayar { display:block; border:2px solid transparent; cursor:pointer; }
+.bayar:has(input:checked) { border-color:var(--hijau); }
+.bayar input { margin-right:8px; }
+.bayar .ket { font-size:13px; color:#555; margin-top:4px; }
+.qris { background:#eef2ff; border-radius:12px; padding:14px; margin-top:10px; text-align:center; font-size:13px; color:#444; display:none; }
+.bayar:has(input[value=qris]:checked) .qris { display:block; }
+.ringkas div { display:flex; justify-content:space-between; margin:8px 0; }
+.ringkas .total { font-size:22px; font-weight:800; color:var(--hijau); }
+.gratis { color:var(--hijau); }
+.bayar-bar { position:fixed; bottom:72px; left:50%; transform:translateX(-50%); width:100%; max-width:480px; background:#fff; padding:10px 16px; display:flex; align-items:center; gap:12px; box-shadow:0 -2px 8px rgba(0,0,0,.08); z-index:9; }
+.bayar-bar small { color:var(--abu); font-size:11px; font-weight:700; display:block; }
+.bayar-bar b { font-size:18px; }
+.bayar-bar button { flex:1; }
