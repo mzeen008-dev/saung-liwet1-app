@@ -55,3 +55,9 @@ td, th { padding:8px 6px; border-bottom:1px solid var(--garis); text-align:left;
 .form label { display:block; margin:12px 0 4px; font-size:14px; }
 .form input, .form textarea { width:100%; padding:10px; border:1px solid #ccc; border-radius:8px; box-sizing:border-box; font-family:inherit; }
 .form .err { color:#b71c1c; font-size:13px; }
+
+.krumb { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 13px; color: #64748b; margin: 0 0 14px; }
+.krumb a { color: #14532d; font-weight: 600; text-decoration: none; }
+.krumb a:hover { text-decoration: underline; }
+.krumb .sep { opacity: .6; }
+.krumb .now { color: #0f172a; font-weight: 700; }
