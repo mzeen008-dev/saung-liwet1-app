@@ -59,6 +59,7 @@
 </nav>
 
 <script src="{{ asset('js/pelanggan.js') }}"></script>
+<script src="{{ asset('js/anti-ganda.js') }}"></script>
 @stack('scripts')
 </body>
 </html>
