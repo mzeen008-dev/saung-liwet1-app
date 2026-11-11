@@ -61,6 +61,30 @@
         </header>
 
         <main>
+                        @php
+                $bagian = null; $indeks = null; $aksi = null;
+                if (request()->routeIs('kasir.*'))        { $bagian = 'Kasir POS';   $indeks = 'kasir.index'; }
+                elseif (request()->routeIs('koki.*'))     { $bagian = 'KDS Dapur';   $indeks = 'koki.index'; }
+                elseif (request()->routeIs('admin.menu.*')) { $bagian = 'Kelola Stok'; $indeks = 'admin.menu.index'; }
+                elseif (request()->routeIs('admin.meja.*')) { $bagian = 'Kelola Meja'; $indeks = 'admin.meja.index'; }
+                elseif (request()->routeIs('admin.akun.*')) { $bagian = 'Kelola Akun'; $indeks = 'admin.akun.index'; }
+                elseif (request()->routeIs('admin.laporan*')) { $bagian = 'Laporan';   $indeks = 'admin.laporan'; }
+                if (request()->routeIs('*.create'))   { $aksi = 'Tambah'; }
+                elseif (request()->routeIs('*.edit')) { $aksi = 'Ubah'; }
+            @endphp
+            <nav class="krumb" aria-label="Jejak halaman">
+                <span>{{ ucfirst($role) }}</span>
+                @if ($bagian)
+                    <span class="sep">&rsaquo;</span>
+                    @if ($aksi)
+                        <a href="{{ route($indeks) }}">{{ $bagian }}</a>
+                        <span class="sep">&rsaquo;</span>
+                        <span class="now">{{ $aksi }}</span>
+                    @else
+                        <span class="now">{{ $bagian }}</span>
+                    @endif
+                @endif
+            </nav>
             @if (session('sukses'))
                 <div class="alert ok">{{ session('sukses') }}</div>
             @endif

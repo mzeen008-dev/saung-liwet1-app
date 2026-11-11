@@ -18,6 +18,24 @@
     </header>
 
     <main>
+                @php $jejak = trim($__env->yieldContent('aktif')); @endphp
+        <nav class="krumb" aria-label="Jejak halaman">
+            @if ($jejak === 'beranda' || $jejak === '')
+                <span class="now">Beranda</span>
+            @else
+                <a href="{{ route('order.index', $meja->id_meja) }}">Beranda</a>
+                <span class="sep">&rsaquo;</span>
+                @if ($jejak === 'menu')
+                    <span class="now">Menu</span>
+                @elseif ($jejak === 'pesanan')
+                    <a href="{{ route('order.menu', $meja->id_meja) }}">Menu</a>
+                    <span class="sep">&rsaquo;</span>
+                    <span class="now">Pesanan</span>
+                @elseif ($jejak === 'status')
+                    <span class="now">Status Pesanan</span>
+                @endif
+            @endif
+        </nav>
         @if ($errors->any())
             <div class="alert err">
                 @foreach ($errors->all() as $error)
