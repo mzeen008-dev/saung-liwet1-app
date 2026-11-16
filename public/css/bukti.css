@@ -1,5 +1,7 @@
 .upload-bukti { display:none; background:#eef2ff; border-radius:12px; padding:14px; margin-bottom:14px; font-size:13px; color:#444; }
-#form:has(input[value=qris]:checked) .upload-bukti { display:block; }
+#form:has(input[value=qris]:checked) .upload-bukti, #form:has(input[value=transfer]:checked) .upload-bukti { display:block; }
+.info-qris, .info-transfer { display:none; }
+#form:has(input[value=qris]:checked) .info-qris, #form:has(input[value=transfer]:checked) .info-transfer { display:block; }
 .upload-bukti b { display:block; margin-bottom:4px; font-size:14px; color:#1b1f23; }
 .upload-bukti input[type=file], .kotak-bukti input[type=file] { width:100%; margin-top:8px; padding:10px; background:#fff; border:1px dashed #9ca3af; border-radius:10px; font-family:inherit; font-size:13px; }
 .kotak-bukti { background:#fff7f0; }

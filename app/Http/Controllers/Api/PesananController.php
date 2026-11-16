@@ -64,7 +64,7 @@ class PesananController extends Controller
             'id_meja'           => ['required', 'exists:meja,id_meja'],
             'nama_pelanggan'    => ['required', 'string', 'max:100'],
             'no_hp_pelanggan'   => ['nullable', 'string', 'max:20'],
-            'metode_pembayaran' => ['required', 'in:tunai,qris'],
+            'metode_pembayaran' => ['required', 'in:tunai,qris,transfer'],
             'items'             => ['required', 'array', 'min:1'],
             'items.*.id_menu'   => ['required', 'integer', 'distinct', 'exists:menu,id_menu'],
             'items.*.jumlah'    => ['required', 'integer', 'min:1'],

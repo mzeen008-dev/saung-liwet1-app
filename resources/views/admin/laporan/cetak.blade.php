@@ -11,6 +11,7 @@
         $fmt = fn ($tgl) => \Carbon\Carbon::parse($tgl)->format('d/m/Y');
         $tunai = $perMetode->get('tunai');
         $qris = $perMetode->get('qris');
+    $transfer = $perMetode->get('transfer');
         $rata = $jumlah > 0 ? $total / $jumlah : 0;
     @endphp
 
@@ -34,6 +35,7 @@
                 <tr><td>Rata-rata per transaksi</td><td class="kanan">Rp {{ number_format($rata, 0, ',', '.') }}</td></tr>
                 <tr><td>Pendapatan tunai</td><td class="kanan">Rp {{ number_format($tunai->total ?? 0, 0, ',', '.') }} ({{ $tunai->jumlah ?? 0 }} transaksi)</td></tr>
                 <tr><td>Pendapatan QRIS</td><td class="kanan">Rp {{ number_format($qris->total ?? 0, 0, ',', '.') }} ({{ $qris->jumlah ?? 0 }} transaksi)</td></tr>
+        <tr><td>Pendapatan Transfer</td><td class="kanan">Rp {{ number_format($transfer->total ?? 0, 0, ',', '.') }} ({{ $transfer->jumlah ?? 0 }} transaksi)</td></tr>
             </tbody>
         </table>
 

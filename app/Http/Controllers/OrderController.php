@@ -54,7 +54,7 @@ class OrderController extends Controller
             'id_meja'           => ['required', 'exists:meja,id_meja'],
             'nama_pelanggan'    => ['required', 'string', 'max:100'],
             'no_hp_pelanggan'   => ['nullable', 'string', 'max:20'],
-            'metode_pembayaran' => ['required', 'in:tunai,qris'],
+            'metode_pembayaran' => ['required', 'in:tunai,qris,transfer'],
             'bukti_bayar'       => ['nullable', 'file', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
             'items'             => ['required', 'array'],
             'items.*'           => ['nullable', 'integer', 'min:0'],
@@ -129,7 +129,7 @@ class OrderController extends Controller
         }
 
         // Bukti transfer (opsional, hanya untuk QRIS). Disimpan privat, bukan di folder public.
-        if ($data['metode_pembayaran'] === 'qris' && $request->hasFile('bukti_bayar')) {
+        if (in_array($data['metode_pembayaran'], ['qris', 'transfer'], true) && $request->hasFile('bukti_bayar')) {
             $path = $request->file('bukti_bayar')->store('bukti');
             Pesanan::where('kode_pesanan', $kode)->update(['bukti_bayar' => $path]);
         }
@@ -142,9 +142,9 @@ class OrderController extends Controller
     {
         $pesanan = Pesanan::where('kode_pesanan', $kode)->firstOrFail();
 
-        if ($pesanan->metode_pembayaran !== 'qris' || $pesanan->status_pembayaran !== 'pending') {
+        if (! in_array($pesanan->metode_pembayaran, ['qris', 'transfer'], true) || $pesanan->status_pembayaran !== 'pending') {
             return back()->withErrors([
-                'bukti_bayar' => 'Bukti hanya bisa diunggah untuk pesanan QRIS yang belum diverifikasi kasir.',
+                'bukti_bayar' => 'Bukti hanya bisa diunggah untuk pesanan QRIS/Transfer yang belum diverifikasi kasir.',
             ]);
         }
 

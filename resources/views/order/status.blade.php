@@ -27,15 +27,15 @@
         <div id="isi"><div class="card">Memuat...</div></div>
     </div>
 
-    @if ($pesanan->metode_pembayaran === 'qris')
+    @if (in_array($pesanan->metode_pembayaran, ['qris', 'transfer'], true))
         <div class="card kotak-bukti" id="form-bukti" @if ($pesanan->status_pembayaran !== 'pending') style="display:none" @endif>
-            <b>Bayar dengan QRIS</b>
-            @include('order._qris', ['nominal' => $pesanan->total_bayar])
-            <b style="margin-top:12px;display:block">Bukti Transfer QRIS</b>
+            <b>{{ $pesanan->metode_pembayaran === 'transfer' ? 'Transfer ke Rekening' : 'Bayar dengan QRIS' }}</b>
+            @include('order.' . ($pesanan->metode_pembayaran === 'transfer' ? '_transfer' : '_qris'), ['nominal' => $pesanan->total_bayar])
+            <b style="margin-top:12px;display:block">Bukti Pembayaran</b>
             <p id="bukti-status">
                 {{ $pesanan->bukti_bayar
                     ? 'Bukti sudah terkirim. Kamu bisa mengunggah ulang kalau ada yang salah.'
-                    : 'Setelah membayar lewat QRIS, unggah screenshot bukti transfer agar kasir bisa memverifikasi.' }}
+                    : 'Setelah membayar, unggah screenshot bukti transfer agar kasir bisa memverifikasi.' }}
             </p>
             <form action="{{ route('order.bukti', $kode) }}" method="POST" enctype="multipart/form-data">
                 @csrf

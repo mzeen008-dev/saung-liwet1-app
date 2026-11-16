@@ -54,7 +54,7 @@
 
     function label(p) {
         if (p.bayar === 'pending') {
-            return { t: p.metode === 'qris' ? 'Menunggu Verifikasi QRIS' : 'Menunggu Bayar Tunai', k: 'tunggu' };
+            return { t: p.metode === 'tunai' ? 'Menunggu Bayar Tunai' : 'Menunggu Verifikasi ' + (p.metode === 'transfer' ? 'Transfer' : 'QRIS'), k: 'tunggu' };
         }
         return { t: 'Lunas • ' + p.status.split('_').join(' '), k: 'lunas' };
     }
@@ -81,7 +81,7 @@
         atas.append(kiri, el('span', l.t, 'label-status ' + l.k));
 
         const total = el('div', undefined, 'psn-total');
-        total.append(el('span', p.metode === 'qris' ? 'QRIS' : 'Tunai'), el('b', rp(p.total)));
+        total.append(el('span', ({ qris: 'QRIS', transfer: 'Transfer', tunai: 'Tunai' })[p.metode] || p.metode), el('b', rp(p.total)));
 
         k.append(atas, el('div', ringkasItem(p), 'psn-item'), total);
         return k;
@@ -193,9 +193,9 @@
             panel.append(baris);
         });
 
-        if (p.bayar === 'pending' && p.metode === 'qris') {
+        if (p.bayar === 'pending' && p.metode !== 'tunai') {
             const box = el('div', undefined, 'bukti-box');
-            box.append(el('b', 'Bukti Transfer QRIS'));
+            box.append(el('b', 'Bukti Pembayaran ' + (p.metode === 'transfer' ? 'Transfer' : 'QRIS')));
             if (p.ada_bukti) {
                 const a = document.createElement('a');
                 a.href = p.bukti_url;

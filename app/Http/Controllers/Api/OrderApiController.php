@@ -43,7 +43,7 @@ class OrderApiController extends Controller
             'id_meja' => 'required|exists:meja,id_meja',
             'no_meja' => 'required|string',
             'nama_pelanggan' => 'required|string|max:100',
-            'metode_pembayaran' => 'required|in:tunai,qris',
+            'metode_pembayaran' => 'required|in:tunai,qris,transfer',
             'items' => 'required|array|min:1',
             'items.*.id_menu' => 'required|exists:menu,id_menu',
             'items.*.jumlah' => 'required|integer|min:1',
