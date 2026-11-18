@@ -10,6 +10,7 @@
     @php
         $tunai = $perMetode->get('tunai');
         $qris  = $perMetode->get('qris');
+    $transfer = $perMetode->get('transfer');
         $maks  = max(1, (float) $perHari->max('total'));
         $rata  = $jumlah > 0 ? $total / $jumlah : 0;
     @endphp
@@ -59,6 +60,11 @@
             <small>QRIS</small>
             <b>Rp {{ number_format($qris->total ?? 0, 0, ',', '.') }}</b>
             <span>{{ $qris->jumlah ?? 0 }} transaksi</span>
+        </div>
+        <div class="stat-box">
+            <small>TRANSFER</small>
+            <b>Rp {{ number_format($transfer->total ?? 0, 0, ',', '.') }}</b>
+            <span>{{ $transfer->jumlah ?? 0 }} transaksi</span>
         </div>
     </div>
 
@@ -115,9 +121,9 @@
                     <td>{{ $kasir[$p->id_user] ?? '-' }}</td>
                     <td>@if ($p->status_pesanan === 'selesai')<span class="status-selesai">Selesai</span>@else<span class="status-proses">Diproses</span>@endif</td>
                     <td>
-                        @if ($p->metode_pembayaran === 'qris' && $p->bukti_bayar)
+                        @if (in_array($p->metode_pembayaran, ['qris', 'transfer'], true) && $p->bukti_bayar)
                             <a href="{{ route('kasir.bukti', $p->id_pesanan) }}" target="_blank">Lihat</a>
-                        @elseif ($p->metode_pembayaran === 'qris')
+                        @elseif (in_array($p->metode_pembayaran, ['qris', 'transfer'], true))
                             <span class="tanpa-bukti">Tidak ada</span>
                         @else
                             -

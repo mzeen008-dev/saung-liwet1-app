@@ -52,15 +52,28 @@
         </label>
         <label class="card bayar">
             <input type="radio" name="metode_pembayaran" value="qris" {{ old('metode_pembayaran') === 'qris' ? 'checked' : '' }}>
-            <b>QRIS / Transfer Bank</b>
+            <b>QRIS</b>
             <div class="ket">Pesanan diproses dapur setelah kasir memeriksa bukti transfermu.</div>
         </label>
 
+        <label class="card bayar">
+            <input type="radio" name="metode_pembayaran" value="transfer" {{ old('metode_pembayaran') === 'transfer' ? 'checked' : '' }}>
+            <b>Transfer Bank</b>
+            <div class="ket">Transfer ke rekening Saung Liwet, lalu unggah bukti transfernya. Pesanan diproses dapur setelah kasir memeriksa bukti transfermu.</div>
+        </label>
+
         <div class="upload-bukti">
+            <div class="info-qris">
             <b>Bayar dengan QRIS</b>
             @include('order._qris')
             <div class="petunjuk">Masukkan nominal sesuai <b>Total Pembayaran</b> di bawah.</div>
-            <b style="margin-top:12px">Bukti Transfer QRIS (opsional)</b>
+            </div>
+            <div class="info-transfer">
+                <b>Transfer ke Rekening</b>
+                @include('order._transfer')
+                <div class="petunjuk">Transfer sesuai <b>Total Pembayaran</b> di bawah.</div>
+            </div>
+            <b style="margin-top:12px">Bukti Pembayaran (opsional)</b>
             Setelah membayar, unggah screenshot buktinya agar kasir bisa memeriksa. Kamu juga bisa mengunggahnya nanti di halaman status pesanan.
             <input type="file" name="bukti_bayar" accept="image/png,image/jpeg,image/webp">
             <div class="petunjuk">Format JPG, PNG, atau WEBP. Maksimal 2 MB.</div>

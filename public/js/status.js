@@ -40,7 +40,7 @@
             if (ket) {
                 ket.textContent = p.ada_bukti
                     ? 'Bukti sudah terkirim. Kamu bisa mengunggah ulang kalau ada yang salah.'
-                    : 'Setelah membayar lewat QRIS, unggah screenshot bukti transfer agar kasir bisa memverifikasi.';
+                    : 'Setelah membayar, unggah screenshot bukti transfer agar kasir bisa memverifikasi.';
             }
         }
 
