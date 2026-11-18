@@ -18,7 +18,7 @@ class OrderController extends Controller
         $meja = Meja::findOrFail($id_meja);
 
         // "Spesial hari ini": menu berfoto yang masih tersedia, bergantian tiap hari
-        $kandidat = Menu::whereNotNull('gambar')->where('stok', '>', 0)->orderBy('id_menu')->get();
+        $kandidat = Menu::whereNotNull('gambar')->where('aktif', 1)->where('stok', '>', 0)->orderBy('id_menu')->get();
         $spesial = $kandidat->isEmpty() ? null : $kandidat[now()->dayOfYear % $kandidat->count()];
 
         return view('order.beranda', compact('meja', 'spesial'));
@@ -27,7 +27,7 @@ class OrderController extends Controller
     public function menu($id_meja)
     {
         $meja = Meja::findOrFail($id_meja);
-        $menus = Menu::orderBy('kategori')->orderBy('nama_menu')->get();
+        $menus = Menu::where('aktif', 1)->orderBy('kategori')->orderBy('nama_menu')->get();
 
         return view('order.menu', compact('meja', 'menus'));
     }
@@ -35,7 +35,7 @@ class OrderController extends Controller
     public function checkoutPage($id_meja)
     {
         $meja = Meja::findOrFail($id_meja);
-        $menus = Menu::orderBy('kategori')->orderBy('nama_menu')->get();
+        $menus = Menu::where('aktif', 1)->orderBy('kategori')->orderBy('nama_menu')->get();
 
         return view('order.checkout', compact('meja', 'menus'));
     }
@@ -82,8 +82,8 @@ class OrderController extends Controller
                 $total = 0;
                 foreach ($items as $idMenu => $qty) {
                     $menu = $menus->get($idMenu);
-                    if (! $menu) {
-                        throw new \RuntimeException('Menu tidak ditemukan.');
+                    if (! $menu || ! $menu->aktif) {
+                        throw new \RuntimeException('Ada menu di pesananmu yang sedang tidak tersedia. Muat ulang halaman menu lalu pilih lagi.');
                     }
                     if ($menu->stok < $qty) {
                         throw new \RuntimeException("Stok {$menu->nama_menu} tidak cukup (sisa {$menu->stok}).");

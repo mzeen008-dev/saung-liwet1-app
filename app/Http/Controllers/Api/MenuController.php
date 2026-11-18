@@ -11,7 +11,7 @@ class MenuController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Menu::query();
+        $query = Menu::query()->where('aktif', 1);
 
         if ($request->filled('kategori')) {
             $query->where('kategori', $request->kategori);
@@ -22,6 +22,7 @@ class MenuController extends Controller
 
     public function show(Menu $menu)
     {
+        abort_unless($menu->aktif, 404);
         return response()->json(['data' => $menu]);
     }
 

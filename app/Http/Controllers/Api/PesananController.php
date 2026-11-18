@@ -66,7 +66,7 @@ class PesananController extends Controller
             'no_hp_pelanggan'   => ['nullable', 'string', 'max:20'],
             'metode_pembayaran' => ['required', 'in:tunai,qris'],
             'items'             => ['required', 'array', 'min:1'],
-            'items.*.id_menu'   => ['required', 'integer', 'distinct', 'exists:menu,id_menu'],
+            'items.*.id_menu'   => ['required', 'integer', 'distinct', 'exists:menu,id_menu,aktif,1'],
             'items.*.jumlah'    => ['required', 'integer', 'min:1'],
             'items.*.catatan'   => ['nullable', 'string', 'max:255'],
         ]);

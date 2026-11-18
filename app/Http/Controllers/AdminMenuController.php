@@ -86,13 +86,24 @@ class AdminMenuController extends Controller
     {
         // Menu yang sudah pernah dipesan tidak boleh dihapus (menjaga riwayat pesanan)
         if (DetailPesanan::where('id_menu', $menu->id_menu)->exists()) {
-            return back()->with('info', "Menu {$menu->nama_menu} sudah pernah dipesan, jadi tidak bisa dihapus. Set stok ke 0 kalau ingin menyembunyikannya dari pemesanan.");
+            return back()->with('info', "Menu {$menu->nama_menu} sudah pernah dipesan, jadi tidak bisa dihapus. Gunakan tombol Nonaktifkan kalau ingin menyembunyikannya dari pemesanan.");
         }
 
         $this->hapusFoto($menu->gambar);
         $menu->delete();
 
         return redirect()->route('admin.menu.index')->with('sukses', 'Menu berhasil dihapus.');
+    }
+
+    // Aktifkan atau nonaktifkan menu. Menu nonaktif disembunyikan dari pemesanan, riwayat tetap utuh.
+    public function aktif(Menu $menu)
+    {
+        $menu->aktif = ! $menu->aktif;
+        $menu->save();
+
+        $keadaan = $menu->aktif ? 'diaktifkan' : 'dinonaktifkan';
+
+        return back()->with('sukses', "Menu {$menu->nama_menu} {$keadaan}.");
     }
 
     // Ubah stok cepat langsung dari tabel

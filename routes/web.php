@@ -52,6 +52,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('admin/akun', AdminAkunController::class)->except('show')->names('admin.akun');
     Route::resource('admin/meja', AdminMejaController::class)->except('show')->names('admin.meja');
     Route::get('/admin/laporan/cetak', [LaporanController::class, 'cetak'])->name('admin.laporan.cetak');
+    Route::patch('admin/menu/{menu}/aktif', [AdminMenuController::class, 'aktif'])->name('admin.menu.aktif');
 });
 
 // ======================================================

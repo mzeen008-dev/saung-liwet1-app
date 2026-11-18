@@ -84,7 +84,7 @@
                     $status = $m->stok <= 0 ? 'habis' : ($m->stok <= $batas ? 'menipis' : 'tersedia');
                     $lebar = min(100, $m->stok * 2);
                 @endphp
-                <tr class="baris-menu" data-nama="{{ mb_strtolower($m->nama_menu) }}" data-kategori="{{ $m->kategori }}" data-status="{{ $status }}">
+                <tr class="baris-menu" data-nama="{{ mb_strtolower($m->nama_menu) }}" data-kategori="{{ $m->kategori }}" data-status="{{ $status }}" @if (! $m->aktif) style="opacity:.55" @endif>
                     <td>
                         <div class="sel-menu">
                             @if ($m->gambar)
@@ -95,6 +95,7 @@
                             <div>
                                 <b>{{ $m->nama_menu }}</b>
                                 <small>{{ $m->kategori }}</small>
+                                @if (! $m->aktif)<span class="label-stok habis">nonaktif</span>@endif
                             </div>
                         </div>
                     </td>
@@ -116,6 +117,12 @@
                     </td>
                     <td class="aksi-menu">
                         <a href="{{ route('admin.menu.edit', $m->id_menu) }}">Ubah</a>
+                        <form action="{{ route('admin.menu.aktif', $m->id_menu) }}" method="POST"
+                              @if ($m->aktif) data-konfirmasi="Nonaktifkan menu {{ $m->nama_menu }}?" @endif>
+                            @csrf
+                            @method('PATCH')
+                            <button type="submit" class="toggle {{ $m->aktif ? '' : 'on' }}">{{ $m->aktif ? 'Nonaktifkan' : 'Aktifkan' }}</button>
+                        </form>
                         <form action="{{ route('admin.menu.destroy', $m->id_menu) }}" method="POST"
                               data-konfirmasi="Hapus menu {{ $m->nama_menu }}?">
                             @csrf

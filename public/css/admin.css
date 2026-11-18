@@ -46,3 +46,8 @@
 .aksi-menu .hapus { background:none; border:0; color:#c0392b; font-weight:700; cursor:pointer; font-family:inherit; font-size:inherit; padding:0; }
 .ket-tabel { font-size:12px; color:var(--abu); margin-top:10px; }
 tr.baris-menu[hidden] { display:none; }
+
+.aksi-menu .toggle { background:none; border:0; color:#b9650f; font-weight:700; cursor:pointer; font-family:inherit; font-size:inherit; padding:0; margin-right:10px; }
+.aksi-menu .toggle.on { color:var(--hijau); }
+.status-selesai { background:#e3f1e5; color:#1b5e2b; font-weight:700; font-size:12px; padding:3px 10px; border-radius:999px; white-space:nowrap; }
+.status-proses { background:#fdeccf; color:#9a5b0c; font-weight:700; font-size:12px; padding:3px 10px; border-radius:999px; white-space:nowrap; }
