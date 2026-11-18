@@ -102,7 +102,7 @@
         <table>
             <tr>
                 <th>Waktu</th><th>Kode</th><th>Meja</th><th>Pelanggan</th>
-                <th>Metode</th><th>Total</th><th>Kasir</th><th>Bukti</th>
+                <th>Metode</th><th>Total</th><th>Kasir</th><th>Status</th><th>Bukti</th>
             </tr>
             @forelse ($transaksi as $p)
                 <tr>
@@ -113,6 +113,7 @@
                     <td>{{ strtoupper($p->metode_pembayaran) }}</td>
                     <td>Rp {{ number_format($p->total_bayar, 0, ',', '.') }}</td>
                     <td>{{ $kasir[$p->id_user] ?? '-' }}</td>
+                    <td>@if ($p->status_pesanan === 'selesai')<span class="status-selesai">Selesai</span>@else<span class="status-proses">Diproses</span>@endif</td>
                     <td>
                         @if ($p->metode_pembayaran === 'qris' && $p->bukti_bayar)
                             <a href="{{ route('kasir.bukti', $p->id_pesanan) }}" target="_blank">Lihat</a>
@@ -124,7 +125,7 @@
                     </td>
                 </tr>
             @empty
-                <tr><td colspan="8" class="kosong">Belum ada transaksi lunas pada rentang ini.</td></tr>
+                <tr><td colspan="9" class="kosong">Belum ada transaksi lunas pada rentang ini.</td></tr>
             @endforelse
         </table>
 

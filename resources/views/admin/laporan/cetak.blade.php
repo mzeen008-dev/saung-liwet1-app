@@ -86,7 +86,7 @@
             <thead>
                 <tr>
                     <th>No</th><th>Waktu</th><th>Kode</th><th>Meja</th><th>Pelanggan</th>
-                    <th>Metode</th><th class="kanan">Total (Rp)</th><th>Kasir</th>
+                    <th>Metode</th><th class="kanan">Total (Rp)</th><th>Kasir</th><th>Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -100,14 +100,15 @@
                         <td>{{ strtoupper($p->metode_pembayaran) }}</td>
                         <td class="kanan">{{ number_format($p->total_bayar, 0, ',', '.') }}</td>
                         <td>{{ $kasir[$p->id_user] ?? '-' }}</td>
+                        <td>{{ $p->status_pesanan === 'selesai' ? 'Selesai' : 'Diproses' }}</td>
                     </tr>
                 @empty
-                    <tr><td colspan="8" class="tengah">Tidak ada transaksi pada periode ini.</td></tr>
+                    <tr><td colspan="9" class="tengah">Tidak ada transaksi pada periode ini.</td></tr>
                 @endforelse
             </tbody>
             @if ($transaksi->isNotEmpty())
                 <tfoot>
-                    <tr><td colspan="6">Total</td><td class="kanan">{{ number_format($transaksi->sum('total_bayar'), 0, ',', '.') }}</td><td></td></tr>
+                    <tr><td colspan="6">Total</td><td class="kanan">{{ number_format($transaksi->sum('total_bayar'), 0, ',', '.') }}</td><td></td><td></td></tr>
                 </tfoot>
             @endif
         </table>
