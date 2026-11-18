@@ -68,6 +68,19 @@
         </div>
     </div>
 
+    <div class="kartu-stat">
+        <div class="stat-box">
+            <small>TOTAL PENGELUARAN</small>
+            <b>Rp {{ number_format($pengeluaran, 0, ',', '.') }}</b>
+            <a href="{{ route('admin.pengeluaran.index', ['dari' => $dari, 'sampai' => $sampai]) }}">Lihat rincian</a>
+        </div>
+        <div class="stat-box utama">
+            <small>LABA BERSIH</small>
+            <b>{{ $laba < 0 ? '-' : '' }}Rp {{ number_format(abs($laba), 0, ',', '.') }}</b>
+            <span>pendapatan dikurangi pengeluaran</span>
+        </div>
+    </div>
+
     <h2>Pendapatan per Hari</h2>
     <div class="card">
         <table>

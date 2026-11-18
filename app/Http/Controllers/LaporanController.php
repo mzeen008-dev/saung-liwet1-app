@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pengeluaran;
 use App\Models\Pesanan;
 use App\Models\User;
 use Carbon\Carbon;
@@ -96,10 +97,14 @@ class LaporanController extends Controller
     private function ringkasan(string $dari, string $sampai): array
     {
         $dasar = $this->dasar($dari, $sampai);
+        $pengeluaran = (float) Pengeluaran::whereDate('tanggal', '>=', $dari)->whereDate('tanggal', '<=', $sampai)->sum('jumlah');
+        $pendapatan = (float) (clone $dasar)->sum('total_bayar');
 
         return [
             'total'  => (float) (clone $dasar)->sum('total_bayar'),
             'jumlah' => (clone $dasar)->count(),
+            'pengeluaran' => $pengeluaran,
+            'laba' => $pendapatan - $pengeluaran,
             'perMetode' => (clone $dasar)
                 ->selectRaw('metode_pembayaran, COUNT(*) AS jumlah, SUM(total_bayar) AS total')
                 ->groupBy('metode_pembayaran')

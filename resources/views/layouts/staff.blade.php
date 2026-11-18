@@ -38,6 +38,9 @@
                 @if (Route::has('admin.akun.index'))
                     <a href="{{ route('admin.akun.index') }}" class="{{ request()->routeIs('admin.akun.*') ? 'on' : '' }}"><span>👥</span>Kelola Akun</a>
                 @endif
+                @if (Route::has('admin.pengeluaran.index'))
+                    <a href="{{ route('admin.pengeluaran.index') }}" class="{{ request()->routeIs('admin.pengeluaran.*') ? 'on' : '' }}"><span>💸</span>Pengeluaran</a>
+                @endif
                 @if (Route::has('admin.laporan'))
                     <a href="{{ route('admin.laporan') }}" class="{{ request()->routeIs('admin.laporan*') ? 'on' : '' }}"><span>📊</span>Laporan</a>
                 @endif
@@ -68,6 +71,7 @@
                 elseif (request()->routeIs('admin.menu.*')) { $bagian = 'Kelola Stok'; $indeks = 'admin.menu.index'; }
                 elseif (request()->routeIs('admin.meja.*')) { $bagian = 'Kelola Meja'; $indeks = 'admin.meja.index'; }
                 elseif (request()->routeIs('admin.akun.*')) { $bagian = 'Kelola Akun'; $indeks = 'admin.akun.index'; }
+                elseif (request()->routeIs('admin.pengeluaran*')) { $bagian = 'Pengeluaran'; $indeks = 'admin.pengeluaran.index'; }
                 elseif (request()->routeIs('admin.laporan*')) { $bagian = 'Laporan';   $indeks = 'admin.laporan'; }
                 if (request()->routeIs('*.create'))   { $aksi = 'Tambah'; }
                 elseif (request()->routeIs('*.edit')) { $aksi = 'Ubah'; }

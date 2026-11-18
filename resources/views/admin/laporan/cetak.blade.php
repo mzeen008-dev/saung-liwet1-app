@@ -36,6 +36,8 @@
                 <tr><td>Pendapatan tunai</td><td class="kanan">Rp {{ number_format($tunai->total ?? 0, 0, ',', '.') }} ({{ $tunai->jumlah ?? 0 }} transaksi)</td></tr>
                 <tr><td>Pendapatan QRIS</td><td class="kanan">Rp {{ number_format($qris->total ?? 0, 0, ',', '.') }} ({{ $qris->jumlah ?? 0 }} transaksi)</td></tr>
         <tr><td>Pendapatan Transfer</td><td class="kanan">Rp {{ number_format($transfer->total ?? 0, 0, ',', '.') }} ({{ $transfer->jumlah ?? 0 }} transaksi)</td></tr>
+                <tr><td>Total pengeluaran</td><td class="kanan">Rp {{ number_format($pengeluaran, 0, ',', '.') }}</td></tr>
+                <tr><td>Laba bersih</td><td class="kanan">{{ $laba < 0 ? '-' : '' }}Rp {{ number_format(abs($laba), 0, ',', '.') }}</td></tr>
             </tbody>
         </table>
 

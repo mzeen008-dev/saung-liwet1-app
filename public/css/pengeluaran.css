@@ -1,0 +1,8 @@
+.form-pengeluaran { display: grid; grid-template-columns: 150px 190px 1fr 170px auto; gap: 12px; align-items: end; }
+.form-pengeluaran label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 4px; }
+.form-pengeluaran input, .form-pengeluaran select { width: 100%; padding: 9px 10px; border: 1px solid #d5e0d1; border-radius: 8px; font: inherit; box-sizing: border-box; }
+.alert.err { background: #fdecea; color: #8a1f11; border: 1px solid #f5c2bb; padding: 10px 14px; border-radius: 10px; margin-bottom: 12px; }
+@media (max-width: 900px) {
+    .form-pengeluaran { grid-template-columns: 1fr 1fr; }
+    .form-pengeluaran .lebar { grid-column: 1 / -1; }
+}
