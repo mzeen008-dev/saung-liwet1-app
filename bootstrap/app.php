@@ -25,6 +25,9 @@ return Application::configure(basePath: dirname(__DIR__))
 
         // Header keamanan dipasang pada semua respons
         $middleware->append(SecurityHeaders::class);
+
+        // Aplikasi berjalan di belakang proxy (Coolify): percayai header X-Forwarded-*
+        $middleware->trustProxies(at: '*');
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         // Semua alamat /api/* selalu dijawab JSON, walau header Accept tidak dikirim
